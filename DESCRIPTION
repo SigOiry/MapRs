@@ -1,11 +1,10 @@
 Package: MapRs
 Type: Package
-Title: What the Package Does (Title Case)
+Title: MapRs, the GIS and Remote Sensing Toolbox
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Simon Oiry
+Maintainer: The package maintainer <oirysimon@gmail.com>
+Description: A mix of function I oftenly used when playing with remote sensing and GIS data.
 License: What license is it under?
 Encoding: UTF-8
-LazyData: true
+LazyData: trues
