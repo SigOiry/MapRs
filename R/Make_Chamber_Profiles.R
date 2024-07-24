@@ -38,7 +38,73 @@ Make_Chamber_Profile <- function(max_Air_Temp_control,
                          time_step = 6, 
                          Save_Experiment = T, 
                          Experiment_Name = "ThisIsATest"){
-
+  
+  
+  if(!exists("max_Air_Temp_control")) {
+    print("max_Air_Temp_control haven't been set !") 
+    stop()
+  }
+  
+  if(!exists("min_Air_Temp_control")) {
+    print("min_Air_Temp_control haven't been set !") 
+    stop()
+  }
+  
+  if(!exists("max_Air_Temp_test")) {
+    print("max_Air_Temp_test haven't been set !") 
+    stop()
+  }
+  
+  if(!exists("min_Air_Temp_test")) {
+    print("min_Air_Temp_test haven't been set !") 
+    stop()
+  }
+  
+  if(!exists("max_Water_Temp_control")) {
+    print("max_Water_Temp_control haven't been set !") 
+    stop()
+  }
+  
+  if(!exists("min_Water_Temp_control")) {
+    print("min_Water_Temp_control haven't been set !") 
+    stop()
+  }
+  
+  if(!exists("max_Water_Temp_test")) {
+    print("max_Water_Temp_test haven't been set !") 
+    stop()
+  }
+  
+  if(!exists("min_Water_Temp_test")) {
+    print("min_Water_Temp_test haven't been set !") 
+    stop()
+  }
+  
+  if(!exists("date_start")) {
+    print("date_start haven't been set !") 
+    stop()
+  }
+  
+  if(!exists("date_end")) {
+    print("date_start haven't been set !") 
+    stop()
+  }
+  
+  if(!exists("sunrise")) {
+    print("sunrise haven't been set !") 
+    stop()
+  }
+  
+  if(!exists("sunset")) {
+    print("sunset haven't been set !") 
+    stop()
+  }
+  
+  if(!exists("max_light_intensity")) {
+    print("max_light_intensity haven't been set !") 
+    stop()
+  }
+  
   calculate_tide <- function(initial_tide_time, start_time, end_time, tide_duration_hours = 6) {
     
     initial_tide_time <- as.POSIXct(initial_tide_time, format = "%Y-%m-%d %H:%M:%S")
