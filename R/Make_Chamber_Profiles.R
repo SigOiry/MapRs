@@ -358,6 +358,7 @@ Make_Chamber_Profile <- function(max_Air_Temp_control,
                                   TRUE ~ Temp))
         
       }
+      
       if(!is.na(High_Tide_Until)){
         low_tide_at <- as.POSIXct(High_Tide_Until, format = "%Y-%m-%d %H:%M", tz = "UTC")
         
@@ -378,6 +379,22 @@ Make_Chamber_Profile <- function(max_Air_Temp_control,
         
       }
       
+      
+      if(daily_increase!=0){
+        first_low_tide_max_Temps <- data %>% 
+          dplyr::filter(Tide_Status == "Low_Tide") %>% 
+          slice(1:7) %>% 
+          pull(Temp_Air) %>% 
+          max()
+        
+        Air_Temp_Diff <- first_low_tide_max_Temps-max_Air
+        
+        data <- data %>% 
+          mutate(Temp_Air = Temp_Air - Air_Temp_Diff) %>% 
+          mutate(Temp = case_when(Tide_Status == "Low_Tide" ~ Temp_Air,
+                                  TRUE ~ Temp))
+        
+      }
       
       Profil <- data %>% 
         mutate(UNIX = as.numeric(Time) %>% as.character(),
