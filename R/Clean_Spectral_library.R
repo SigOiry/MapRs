@@ -62,7 +62,7 @@ clean_spectra <- function(input_data, batch_size = 100) {
     
     # Initialize reactive values to manage batches
     batch_start <- reactiveVal(1)
-    batch_end <- reactiveVal(min(batch_size, n_distinct(input_data$ID)))
+    batch_end <- reactiveVal(min(batch_size, dplyr::n_distinct(input_data$ID)))
     
     # Update the selectizeInput with the spectrum choices dynamically
     shiny::updateSelectizeInput(session, "spectrum_select", 
@@ -107,10 +107,10 @@ clean_spectra <- function(input_data, batch_size = 100) {
       if (!is.null(input$spectrum_select) && input$spectrum_select != "") {
         spectrum_to_delete <- input$spectrum_select
         spectra_data(spectra_data() %>% dplyr::filter(ID != spectrum_to_delete))
-        
-        # Update the dropdown list to reflect the remaining spectra
-        shiny::updateSelectInput(session, "spectrum_select",
-                                 choices = unique(spectra_data()$ID), selected = NULL)
+        # 
+        # # Update the dropdown list to reflect the remaining spectra
+        # shiny::updateSelectInput(session, "spectrum_select",
+        #                          choices = unique(spectra_data()$ID), selected = NULL)
         
         # Adjust batch indices if needed
         if (batch_start() > n_distinct(spectra_data()$ID)) {
