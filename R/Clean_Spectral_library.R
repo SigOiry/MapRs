@@ -1,5 +1,13 @@
 clean_spectra <- function(input_data) {
   
+  # Define your start and end colors
+  start_color <- "#F5D90F" # Red
+  end_color <- "#7B0101"   # Blue
+  
+  # Define the number of colors you want in the sequence
+ 
+  
+  
   # Initialize a variable to store the edited data
   edited_data <<- NULL  # Assign globally to ensure it is accessible after app closes
   # Define UI
@@ -40,12 +48,21 @@ clean_spectra <- function(input_data) {
     # Create a reactive dataframe
     spectra_data <- shiny::reactiveVal(input_data)
     
+    num_colors <- length(unique(spectra_data()$ID))
+    
+    # Create a color palette function
+    color_palette <- colorRampPalette(c(start_color, end_color))
+    
+    # Generate the vector of colors
+    color_vector <- color_palette(num_colors)
+    
+    
     # Update the selectizeInput with the spectrum choices dynamically
     shiny::updateSelectizeInput(session, "spectrum_select", 
                                 choices = unique(input_data$ID), server = TRUE)
     
     output$spectra_plot <- plotly::renderPlotly({
-      plotly::plot_ly(spectra_data(), x = ~Wavelength, y = ~Value, color = ~ID, colors = c("#F5D90F", "#7B0101"),
+      plotly::plot_ly(spectra_data(), x = ~Wavelength, y = ~Value, color = ~ID, colors = color_vector,
                       type = 'scatter', mode = 'lines', hoverinfo = 'text',
                       text = ~paste("Spectrum:", ID)) %>%
         plotly::layout(showlegend = F)
