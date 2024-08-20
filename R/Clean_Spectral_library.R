@@ -26,8 +26,9 @@ clean_spectra <- function(input_data) {
     ),
     div(
       id = "control-panel",
-      shiny::selectInput("spectrum_select", "Select Spectrum to Delete:",
-                         choices = unique(input_data$ID), selected = NULL),
+      shiny::selectizeInput("spectrum_select", "Select Spectrum to Delete:",
+                            choices = NULL, selected = NULL, 
+                            options = list(maxOptions = 1000)),
       shiny::actionButton("delete", "Delete Selected Spectrum"),
       shiny::actionButton("save_exit", "Save and Exit")
     ),
@@ -39,8 +40,12 @@ clean_spectra <- function(input_data) {
     # Create a reactive dataframe
     spectra_data <- shiny::reactiveVal(input_data)
     
+    # Update the selectizeInput with the spectrum choices dynamically
+    shiny::updateSelectizeInput(session, "spectrum_select", 
+                                choices = unique(input_data$ID), server = TRU
+    
     output$spectra_plot <- plotly::renderPlotly({
-      plotly::plot_ly(spectra_data(), x = ~Wavelength, y = ~Value, color = ~ID,
+      plotly::plot_ly(spectra_data(), x = ~Wavelength, y = ~Value,
                       type = 'scatter', mode = 'lines', hoverinfo = 'text',
                       text = ~paste("Spectrum:", ID)) %>%
         plotly::layout(showlegend = F)
