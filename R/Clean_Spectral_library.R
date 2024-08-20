@@ -1,7 +1,7 @@
 clean_spectra <- function(input_data) {
   
   # Define your start and end colors
-  start_color <- "#F5D90F" # Red
+  start_color <- "#A1E00A" # Red
   end_color <- "#7B0101"   # Blue
   
   # Define the number of colors you want in the sequence
