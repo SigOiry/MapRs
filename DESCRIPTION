@@ -8,3 +8,24 @@ Description: A mix of function I oftenly used when playing with remote sensing a
 License: What license is it under?
 Encoding: UTF-8
 LazyData: trues
+
+Import:
+  tidyverse
+	cowplot,
+	patchwork,
+	purrr,
+	magrittr,
+	Utilities.Package,
+	shiny,
+	plotly
+Depends:
+  tidyverse
+	cowplot,
+	patchwork,
+	purrr,
+	magrittr,
+	Utilities.Package,
+	shiny,
+	plotly
+Remotes:
+    BedeFfinian/Utilities.Package@main

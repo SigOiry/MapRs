@@ -1,5 +1,4 @@
-# Hello, world!
-#
+
 # This is a function made to create experiment profiles of the test and the control for ElectricBlue Intertidal chambers
 
 # https://electricblue.eu/intertidal-chamber
@@ -10,7 +9,7 @@
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
 
-library(tidyverse)
+require(tidyverse)
 
 
 Make_Chamber_Profile <- function(max_Air_Temp_control, 
