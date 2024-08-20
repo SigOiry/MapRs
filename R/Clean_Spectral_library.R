@@ -42,7 +42,7 @@ clean_spectra <- function(input_data) {
     
     # Update the selectizeInput with the spectrum choices dynamically
     shiny::updateSelectizeInput(session, "spectrum_select", 
-                                choices = unique(input_data$ID), server = TRU
+                                choices = unique(input_data$ID), server = TRUE)
     
     output$spectra_plot <- plotly::renderPlotly({
       plotly::plot_ly(spectra_data(), x = ~Wavelength, y = ~Value,
