@@ -22,6 +22,7 @@ clean_spectra <- function(input_data, batch_size = 100) {
   edited_data <<- NULL  # Assign globally to ensure it is accessible after app closes
   # Define UI
   ui <- shiny::fluidPage(
+    shinyjs::useShinyjs(),
     tags$head(
       tags$style(HTML("
         body, html, #spectra_plot {
@@ -83,6 +84,16 @@ clean_spectra <- function(input_data, batch_size = 100) {
                       type = 'scatter', mode = 'lines', hoverinfo = 'text',
                       text = ~paste("Spectrum:", ID)) %>%
         plotly::layout(showlegend = F)
+    })
+    
+    # Hide or show the "Next Batch" button based on the current batch
+    observe({
+      total_spectra <- n_distinct(spectra_data()$Spectra)
+      if (batch_end() >= total_spectra) {
+        shinyjs::hide("next_batch")
+      } else {
+        shinyjs::show("next_batch")
+      }
     })
     
     shiny::observeEvent(input$prev_batch, {
