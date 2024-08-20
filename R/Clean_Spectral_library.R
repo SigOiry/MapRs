@@ -76,7 +76,7 @@ clean_spectra <- function(input_data, batch_size = 100) {
       unique_spectra <- unique(plot_data$ID)
       current_batch <- unique_spectra[batch_start():batch_end()]
       
-      plot_data <- plot_data %>% filter(ID %in% current_batch)
+      plot_data <- plot_data %>% dplyr::filter(ID %in% current_batch)
       
       
       plotly::plot_ly(plot_data, x = ~Wavelength, y = ~Value, color = ~ID,
@@ -109,9 +109,9 @@ clean_spectra <- function(input_data, batch_size = 100) {
         spectra_data(spectra_data() %>% dplyr::filter(ID != spectrum_to_delete))
         # 
         # # Update the dropdown list to reflect the remaining spectra
-        # shiny::updateSelectInput(session, "spectrum_select",
-        #                          choices = unique(spectra_data()$ID), selected = NULL)
-        
+        shiny::updateSelectInput(session, "spectrum_select",
+                                 choices = unique(spectra_data()$ID), selected = NULL)
+
         # Adjust batch indices if needed
         if (batch_start() > n_distinct(spectra_data()$ID)) {
           batch_start(max(1, n_distinct(spectra_data()$ID) - batch_size + 1))
