@@ -45,7 +45,7 @@ clean_spectra <- function(input_data) {
                                 choices = unique(input_data$ID), server = TRUE)
     
     output$spectra_plot <- plotly::renderPlotly({
-      plotly::plot_ly(spectra_data(), x = ~Wavelength, y = ~Value,
+      plotly::plot_ly(spectra_data(), x = ~Wavelength, y = ~Value, color = ID, colors = "YlOrRd",
                       type = 'scatter', mode = 'lines', hoverinfo = 'text',
                       text = ~paste("Spectrum:", ID)) %>%
         plotly::layout(showlegend = F)
