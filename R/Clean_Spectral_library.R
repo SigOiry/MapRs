@@ -1,8 +1,18 @@
 clean_spectra <- function(input_data) {
   
   # Define your start and end colors
-  start_color <- "#A1E00A" # Red
+  start_color <- "#F1D00A" # Red
   end_color <- "#7B0101"   # Blue
+  
+  
+  num_colors <- length(unique(input_data$ID))
+  
+  # Create a color palette function
+  color_palette <- colorRampPalette(c(start_color, end_color))
+  
+  # Generate the vector of colors
+  color_vector <- color_palette(num_colors)
+  
   
   # Define the number of colors you want in the sequence
  
@@ -47,15 +57,7 @@ clean_spectra <- function(input_data) {
     
     # Create a reactive dataframe
     spectra_data <- shiny::reactiveVal(input_data)
-    
-    num_colors <- length(unique(spectra_data()$ID))
-    
-    # Create a color palette function
-    color_palette <- colorRampPalette(c(start_color, end_color))
-    
-    # Generate the vector of colors
-    color_vector <- color_palette(num_colors)
-    
+
     
     # Update the selectizeInput with the spectrum choices dynamically
     shiny::updateSelectizeInput(session, "spectrum_select", 
