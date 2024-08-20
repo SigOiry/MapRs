@@ -87,14 +87,14 @@ clean_spectra <- function(input_data, batch_size = 100) {
     })
     
     # Hide or show the "Next Batch" button based on the current batch
-    observe({
-      total_spectra <- n_distinct(spectra_data()$Spectra)
-      if (batch_end() >= total_spectra) {
-        shinyjs::hide("next_batch")
-      } else {
-        shinyjs::show("next_batch")
-      }
-    })
+    # observe({
+    #   total_spectra <- n_distinct(spectra_data()$Spectra)
+    #   if (batch_end() >= total_spectra) {
+    #     shinyjs::hide("next_batch")
+    #   } else {
+    #     shinyjs::show("next_batch")
+    #   }
+    # })
     
     shiny::observeEvent(input$prev_batch, {
       if (batch_start() > 1) {
