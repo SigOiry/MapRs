@@ -17,7 +17,10 @@ Import:
 	magrittr,
 	Utilities.Package,
 	shiny,
-	plotly
+	plotly,
+	zoo,
+	rstudioapi,
+	readr
 Depends:
   tidyverse
 	cowplot,
@@ -26,6 +29,9 @@ Depends:
 	magrittr,
 	Utilities.Package,
 	shiny,
-	plotly
+	plotly,
+	zoo,
+	rstudioapi,
+	readr
 Remotes:
     BedeFfinian/Utilities.Package@main
