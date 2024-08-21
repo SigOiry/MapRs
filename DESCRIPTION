@@ -9,7 +9,7 @@ License: What license is it under?
 Encoding: UTF-8
 LazyData: trues
 Import:
-  tidyverse
+  tidyverse,
 	cowplot,
 	patchwork,
 	purrr,
@@ -21,7 +21,7 @@ Import:
 	rstudioapi,
 	readr
 Depends:
-  tidyverse
+  tidyverse,
 	cowplot,
 	patchwork,
 	purrr,
