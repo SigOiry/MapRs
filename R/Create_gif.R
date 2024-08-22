@@ -1,5 +1,5 @@
 # Function to create GIF from a list of images
-create_gif <- function(image_list = NA, output_file = NA, fps = 10, loop = 0) {
+create_gif <- function(image_list = NA, output_file = NA, fps = 10, loop = 0, plot = F) {
   # Read the images into a magick image object
   
   if(is.na(image_list)){
@@ -15,5 +15,8 @@ create_gif <- function(image_list = NA, output_file = NA, fps = 10, loop = 0) {
   if(!is.na(output_file)){
     magick::image_write(gif, path = output_file)
   }
-  return(gif)
+  
+  if(plot){
+    return(gif)
+  }
 }

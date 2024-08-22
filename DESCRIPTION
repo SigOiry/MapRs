@@ -1,7 +1,7 @@
 Package: MapRs
 Type: Package
 Title: MapRs, the GIS and Remote Sensing Toolbox
-Version: 0.2.0
+Version: 0.2.1
 Author: Simon Oiry
 Maintainer: The package maintainer <oirysimon@gmail.com>
 Description: A mix of function I oftenly used when playing with remote sensing and GIS data.
