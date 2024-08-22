@@ -8,7 +8,7 @@ create_gif <- function(image_list = NA, output_file = NA, fps = 10, loop = 0) {
   }
   images <- magick::image_read(image_list)
   
-  # Create the GIF
+  # Create the  GIF
   gif <- magick::image_animate(images, fps = fps, loop = loop)
   
   # Write the GIF to the specified output file
