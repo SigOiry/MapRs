@@ -19,7 +19,8 @@ Import:
 	plotly,
 	zoo,
 	rstudioapi,
-	readr
+	readr,
+	magick
 Depends:
   tidyverse,
 	cowplot,
@@ -31,6 +32,7 @@ Depends:
 	plotly,
 	zoo,
 	rstudioapi,
-	readr
+	readr,
+	magick
 Remotes:
     BedeFfinian/Utilities.Package@main
