@@ -45,5 +45,6 @@ Read_S2 <- function(img_path){
   }
   
   stk <- c(B01,B02,B03,B04,B05,B06,B07,B08,B08A,B09,B11,B12)
+  names(stk) <- c("B01","B02","B03","B04","B05","B06","B07","B08","B08A","B09","B11","B12")
   return(stk)
 }
