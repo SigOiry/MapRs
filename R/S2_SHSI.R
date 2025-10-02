@@ -3,7 +3,7 @@ require(terra)
 
 S2_SHSI <- function(img, STD = T) {
   
-  if (STD) {
+  if(STD){
     min_img <- min(img)
     max_img <- max(img)
     
