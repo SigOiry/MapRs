@@ -1,5 +1,5 @@
-library(tidyverse)
-library(terra)
+require(tidyverse)
+require(terra)
 
 Read_S2 <- function(img_path){
   band_files <- list.files(img_path, pattern = "\\.jp2$", full.names = TRUE, recursive = T) %>% 
@@ -34,7 +34,7 @@ Read_S2 <- function(img_path){
     rast()
   
   for(i in 1:nrow(band_files)){
-    print(i)
+    print(band_files$bands[i])
     img <- band_files$path[i] %>% 
       rast()
     if(band_files$resolution[i] != 10){
