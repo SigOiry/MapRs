@@ -12,7 +12,7 @@ Import:
   tidyverse,
 	cowplot,
 	patchwork,
-	terra
+	terra,
 	purrr,
 	magrittr,
 	Utilities.Package,
@@ -24,7 +24,7 @@ Import:
 	magick
 Depends:
   tidyverse,
-  terra
+  terra,
 	cowplot,
 	patchwork,
 	purrr,
